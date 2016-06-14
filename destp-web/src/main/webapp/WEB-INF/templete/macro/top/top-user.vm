@@ -1,0 +1,39 @@
+#macro(user)
+<li class="light-blue">
+    <a data-toggle="dropdown" href="javascript:void(0)" class="dropdown-toggle">
+        <img class="nav-user-photo" src="/static/ace/img/user.jpg"
+             alt="Jason&#39;s Photo">
+								<span class="user-info">
+									<small>欢迎,</small>
+									张三
+								</span>
+
+        <i class="ace-icon fa fa-caret-down"></i>
+    </a>
+
+    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+        <li>
+            <a href="javascript:void(0)">
+                <i class="ace-icon fa fa-cog"></i>
+                账号管理
+            </a>
+        </li>
+
+        <li>
+            <a href="javascript:void(0)">
+                <i class="ace-icon fa fa-user"></i>
+                个人设置
+            </a>
+        </li>
+
+        <li class="divider"></li>
+
+        <li>
+            <a href="javascript:void(0)">
+                <i class="ace-icon fa fa-power-off"></i>
+                退出
+            </a>
+        </li>
+    </ul>
+</li>
+#end

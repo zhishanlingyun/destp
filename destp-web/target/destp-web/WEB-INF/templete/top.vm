@@ -1,0 +1,35 @@
+<div class="navbar-container" id="navbar-container">
+    <div class="navbar-header pull-left">
+        <a href="javascript:void(0)" class="navbar-brand">
+            <small>
+                <i class="fa fa-leaf"></i>
+                后台管理系统
+            </small>
+        </a>
+    </div>
+
+    <div class="navbar-buttons navbar-header pull-right" role="navigation">
+        <ul class="nav ace-nav">
+            #foreach($ele in $pageui)
+                #if($ele=="tasks")
+                    #parse("macro/top/top-tasks.vm")
+                    #tasks()
+                #end
+                #if($ele=="notify")
+                    #parse("macro/top/top-notify.vm")
+                    #notify()
+                #end
+                #if($ele=="message")
+                    #parse("macro/top/top-message.vm")
+                    #message()
+                #end
+                #if($ele=="user")
+                    #parse("macro/top/top-user.vm")
+                    #user()
+                #end
+
+            #end
+
+        </ul>
+    </div>
+</div>
