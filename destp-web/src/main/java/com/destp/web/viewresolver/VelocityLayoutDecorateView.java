@@ -60,8 +60,10 @@ public class VelocityLayoutDecorateView extends VelocityLayoutView {
         String content = (String)context.get(this.screenContentKey);
         if(StringUtils.isNotEmpty(content)){
             String head = PatternUtil.getHtmlTag(content,"head");
+            String title = PatternUtil.getHtmlTag(head, "title");
             String body = PatternUtil.getHtmlTag(content, "body");
             context.put("head",head);
+            context.put("title",title);
             context.put("body",body);
             context.remove(this.screenContentKey);
         }
