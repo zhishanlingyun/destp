@@ -7,16 +7,13 @@
         <format>jar</format>
     </formats>
 
-    <!--<fileSets>
+    <fileSets>
         <fileSet>
-            <directory>${project.basedir}\src\main\config</directory>
-            &lt;!&ndash; 过滤 &ndash;&gt;
-            <excludes>
-                <exclude>*.xml</exclude>
-            </excludes>
+            <directory>${project.basedir}\src\main\resources</directory>
+            <!-- 过滤 -->
             <outputDirectory>\</outputDirectory>
         </fileSet>
-    </fileSets>-->
+    </fileSets>
     <includeBaseDirectory>false</includeBaseDirectory>
     <dependencySets>
         <dependencySet>

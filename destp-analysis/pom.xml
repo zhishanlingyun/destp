@@ -110,6 +110,10 @@
                     <artifactId>commons-httpclient</artifactId>
                     <groupId>commons-httpclient</groupId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>guava</artifactId>
+                    <groupId>com.google.guava</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
@@ -134,6 +138,10 @@
                 <exclusion>
                     <artifactId>commons-httpclient</artifactId>
                     <groupId>commons-httpclient</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jodd-core</artifactId>
+                    <groupId>org.jodd</groupId>
                 </exclusion>
             </exclusions>
         </dependency>

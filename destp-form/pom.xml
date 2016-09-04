@@ -19,7 +19,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.destp.view.MainForm</mainClass>
+                            <mainClass>com.destp.view.JdScareBuy</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
