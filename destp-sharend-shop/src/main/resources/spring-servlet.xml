@@ -13,7 +13,7 @@
 
 
     <!--spring mvc 包扫描加载bean-->
-    <context:component-scan base-package="" />
+    <context:component-scan base-package="com.destp.sharend.shop.biz" />
 
 
     <mvc:interceptors>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="datasourcec3p0" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${driverClass}"/>
+        <property name="jdbcUrl" value="${jdbcUrl}" />
+        <property name="user" value="${user}"/>
+        <property name="password" value="${password}"/>
+        <property name="initialPoolSize" value="${initialPoolSize}" />
+        <property name="maxConnectionAge" value="${maxConnectionAge}" />
+        <property name="maxIdleTime" value="${maxIdleTime}"/>
+        <property name="maxPoolSize" value="${maxPoolSize}"/>
+        <property name="loginTimeout" value="${loginTimeout}"/>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="datasourcec3p0"/>
+        <property name="transactionFactory">
+            <bean class="org.apache.ibatis.transaction.managed.ManagedTransactionFactory" />
+        </property>
+        <property name="mapperLocations" value="classpath*:mappers.xml"/>
+    </bean>
+
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+        <constructor-arg index="1" value="BATCH" />
+    </bean>
+
+    <bean id="basedao" class="com.destp.access.jdbc.BaseDao">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
+    </bean>
+
+</beans>

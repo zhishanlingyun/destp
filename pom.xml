@@ -21,6 +21,7 @@
         <module>destp-study</module>
         <module>destp-sharend-shop</module>
         <module>destp-common</module>
+        <module>destp-sharend-base</module>
     </modules>
 
     <properties>
@@ -105,6 +106,16 @@
         <dependency>
             <groupId>org.jodd</groupId>
             <artifactId>jodd-petite</artifactId>
+            <version>${jodd.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jodd</groupId>
+            <artifactId>jodd-db</artifactId>
+            <version>${jodd.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jodd</groupId>
+            <artifactId>jodd-vtor</artifactId>
             <version>${jodd.version}</version>
         </dependency>
         <dependency>
