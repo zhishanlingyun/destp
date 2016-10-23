@@ -12,16 +12,17 @@
 
     <modules>
         <module>destp-service</module>
-        <module>destp-form</module>
+        <!--<module>destp-form</module>-->
         <module>destp-base</module>
-        <module>destp-web</module>
-        <module>access</module>
-        <module>destp-analysis</module>
-        <module>destp-webstart</module>
-        <module>destp-study</module>
+        <!--<module>destp-web</module>-->
+        <!--<module>access</module>-->
+        <!--<module>destp-analysis</module>-->
+        <!--<module>destp-webstart</module>
+        <module>destp-study</module>-->
         <module>destp-sharend-shop</module>
         <module>destp-common</module>
         <module>destp-sharend-base</module>
+        <module>destp-sharend-dao</module>
     </modules>
 
     <properties>

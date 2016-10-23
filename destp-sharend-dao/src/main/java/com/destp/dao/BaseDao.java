@@ -1,9 +1,9 @@
-package com.destp.access.jdbc;
+package com.destp.dao;
 
-        import org.mybatis.spring.support.SqlSessionDaoSupport;
-        import org.springframework.transaction.annotation.Transactional;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
-        import java.util.List;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/10/22 0022.

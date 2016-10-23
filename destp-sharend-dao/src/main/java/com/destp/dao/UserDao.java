@@ -1,6 +1,5 @@
-package destp.base.biz.hr.dao;
+package com.destp.dao;
 
-import com.destp.access.jdbc.BaseDao;
 import org.springframework.stereotype.Service;
 
 /**

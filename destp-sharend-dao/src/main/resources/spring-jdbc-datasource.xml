@@ -4,6 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:shop.properties</value>
+            </list>
+        </property>
+    </bean>
+
     <bean id="datasourcec3p0" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="${driverClass}"/>
         <property name="jdbcUrl" value="${jdbcUrl}" />
@@ -21,7 +29,7 @@
         <property name="transactionFactory">
             <bean class="org.apache.ibatis.transaction.managed.ManagedTransactionFactory" />
         </property>
-        <property name="mapperLocations" value="classpath*:mappers.xml"/>
+        <property name="configLocation" value="classpath:configuration.xml"/>
     </bean>
 
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
@@ -29,7 +37,7 @@
         <constructor-arg index="1" value="BATCH" />
     </bean>
 
-    <bean id="basedao" class="com.destp.access.jdbc.BaseDao">
+    <bean id="userdao" class="com.destp.dao.UserDao">
         <property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
     </bean>
 

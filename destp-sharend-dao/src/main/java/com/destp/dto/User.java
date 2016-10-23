@@ -1,4 +1,4 @@
-package destp.base.biz.hr.dto;
+package com.destp.dto;
 
 /**
  * Created by Administrator on 2016/10/22 0022.
