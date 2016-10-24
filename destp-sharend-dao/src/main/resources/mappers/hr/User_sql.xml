@@ -2,14 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="User">
-    <insert id="createUser" keyProperty="id" parameterType="user">
-        INSERT INTO user (username,password,phone,email) VALUES (#username#,#password#,#phone#,#email#);
+<mapper namespace="user">
+    <insert id="createUser"  parameterType="user">
+        <![CDATA[INSERT INTO t_user(username,password,phone,email) VALUES(#{username},#{password},#{phone},#{email});]]>
     </insert>
-    <select id="selectUser" parameterType="int"
-            resultType="mybatis.demo.UserInfo">
-        select * from UserInfo where userid =#{userid}
+
+    <select id="queryUserAll" resultType="user">
+        select * from t_user;
     </select>
+
 </mapper>
 
 
