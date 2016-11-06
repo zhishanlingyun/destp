@@ -23,6 +23,7 @@
         <module>destp-common</module>
         <module>destp-sharend-base</module>
         <module>destp-sharend-dao</module>
+        <module>destp-sharend-service</module>
     </modules>
 
     <properties>

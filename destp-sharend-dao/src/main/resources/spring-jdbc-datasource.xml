@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -24,11 +31,19 @@
         <property name="loginTimeout" value="${loginTimeout}"/>
     </bean>
 
+    <context:annotation-config/>
+    <context:component-scan base-package="com.destp.dao" />
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="datasourcec3p0" />
+    </bean>
+
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="datasourcec3p0"/>
-        <property name="transactionFactory">
-            <bean class="org.apache.ibatis.transaction.managed.ManagedTransactionFactory" />
-        </property>
+        <!--<property name="transactionFactory">
+        </property>-->
         <property name="configLocation" value="classpath:configuration.xml"/>
     </bean>
 
@@ -37,8 +52,8 @@
         <constructor-arg index="1" value="BATCH" />
     </bean>
 
-    <bean id="userdao" class="com.destp.dao.UserDao">
+    <!--<bean id="basedao" class="com.destp.dao.BaseDao">
         <property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
-    </bean>
+    </bean>-->
 
 </beans>
