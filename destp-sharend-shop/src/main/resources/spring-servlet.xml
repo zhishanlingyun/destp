@@ -13,6 +13,7 @@
 
 
     <!--spring mvc 包扫描加载bean-->
+    <mvc:annotation-driven/>
     <context:component-scan base-package="com.destp.sharend.shop.biz" />
 
 
