@@ -17,8 +17,8 @@
         <!--<module>destp-web</module>-->
         <!--<module>access</module>-->
         <!--<module>destp-analysis</module>-->
-        <!--<module>destp-webstart</module>
-        <module>destp-study</module>-->
+        <!--<module>destp-webstart</module>-->
+        <module>destp-study</module>
         <module>destp-sharend-shop</module>
         <module>destp-common</module>
         <module>destp-sharend-base</module>
