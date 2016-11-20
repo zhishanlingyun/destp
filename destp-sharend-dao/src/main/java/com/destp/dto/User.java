@@ -1,5 +1,8 @@
 package com.destp.dto;
 
+
+import org.hibernate.validator.constraints.NotBlank;
+
 /**
  * Created by Administrator on 2016/10/22 0022.
  */
@@ -11,6 +14,7 @@ public class User {
 
     private String password;
 
+    @NotBlank(message = "电话不能为空")
     private String phone;
 
     private String email;

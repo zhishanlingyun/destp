@@ -59,7 +59,20 @@
         <property name="exposeSessionAttributes" value="true" />
     </bean>
 
-
+    <!--<bean id="validator"
+          class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass"  value="jodd.vtor.Vtor"/>
+    </bean>
+    <bean id="webBindingInitializer"
+          class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+        <property name="conversionService" ref="conversionService"/>
+        <property name="validator" ref="validator"/>
+    </bean>-->
+    <mvc:annotation-driven validator="validator" />
+     <!-- 验证配置，告知srpingmvc，我使用的是Hibernate验证框架来完成的验证 -->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+    </bean>
     <!--静态化资源处理-->
     <mvc:resources mapping="/static/**" location="/static/"/>
 

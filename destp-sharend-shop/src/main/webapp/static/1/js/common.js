@@ -2246,3 +2246,9 @@ if (typeof IN_ADMINCP == 'undefined') {
 if (BROWSER.ie) {
     document.documentElement.addBehavior("#default#userdata");
 }
+
+var comm = {
+    doPost:function () {
+        
+    }
+}
