@@ -2,7 +2,7 @@ package com.destp.sharend.shop.biz.home.web;
 
 import com.destp.common.ui.web.view.RequestResult;
 import com.destp.dto.User;
-import com.destp.common.ui.web.view.annotation.JsonPage;
+import com.destp.sharend.shop.frameworker.annotation.JsonPage;
 import com.destp.sharend.shop.frameworker.view.Result;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

@@ -2,17 +2,9 @@ package com.destp.common.ui.web.interceptor;
 
 import com.destp.common.ui.web.util.WebUtils;
 import com.destp.common.ui.web.view.RequestResult;
-import com.destp.common.ui.web.view.VelocityLayoutDecorateView;
-import com.destp.common.ui.web.view.VelocityLayoutDecorateViewResolver;
-import com.destp.common.ui.web.view.annotation.JsonPage;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.io.output.StringBuilderWriter;
-import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
-import org.apache.velocity.context.Context;
-import org.apache.velocity.tools.view.ViewToolContext;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.InitializingBean;
@@ -20,20 +12,13 @@ import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.annotation.AnnotationAwareOrderComparator;
-import org.springframework.validation.BindException;
-import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.*;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.view.velocity.VelocityConfigurer;
-import org.springframework.web.servlet.view.velocity.VelocityLayoutView;
-import org.springframework.web.util.ContentCachingResponseWrapper;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpServletResponseWrapper;
 import java.io.*;
-import java.nio.charset.Charset;
 import java.util.*;
 
 /**
@@ -64,7 +49,7 @@ public class PageUIDecorate implements HandlerInterceptor,ApplicationContextAwar
             modelAndView.addObject("pageui", topeles);
             return;
         }
-        if(handler instanceof HandlerMethod){
+        /*if(handler instanceof HandlerMethod){
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             if(handlerMethod.getMethod().getReturnType()==RequestResult.class){
                 //handler.get
@@ -75,7 +60,7 @@ public class PageUIDecorate implements HandlerInterceptor,ApplicationContextAwar
                     render(viewpage,null,request,response);
                 }
             }
-        }
+        }*/
 
     }
 

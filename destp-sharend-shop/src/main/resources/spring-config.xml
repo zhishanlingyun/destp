@@ -8,5 +8,6 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <import resource="classpath*:/spring-jdbc-datasource.xml"/>
+    <import resource="classpath*:/spring-aop.xml" />
     <!--<context:component-scan base-package="com.destp.sharend.shop.biz.home.web" />-->
 </beans>
