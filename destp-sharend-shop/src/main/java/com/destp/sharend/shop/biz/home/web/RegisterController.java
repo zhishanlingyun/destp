@@ -30,6 +30,7 @@ public class RegisterController {
         RequestResult result = new RequestResult();
         result.setState(true);
         //result.setContent(html);
+        //result.setViewName("/xxx/kkk");
         return result;
     }
 

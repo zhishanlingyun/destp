@@ -14,7 +14,9 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     public static Map<String,Object> mergePageResult(ServletRequest request, RequestResult requestResult){
         Map<String,Object> map = new HashMap<String, Object>();
-        map.putAll(getRequestAttrMap(request));
+        if(null!=request){
+            map.putAll(getRequestAttrMap(request));
+        }
         if(null!=requestResult){
             map.putAll(requestResult.getModel());
         }
