@@ -11,8 +11,8 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
-    <context:annotation-config/>
+    <!--<context:annotation-config/>-->
     <context:component-scan base-package="com.destp.sharend" />
-    <bean id="jsonpage" class="com.destp.sharend.shop.frameworker.aop.JsonPageAspect"/>
+    <!--<bean id="jsonpage" class="com.destp.sharend.shop.frameworker.aop.JsonPageAspect"/>-->
 
 </beans>

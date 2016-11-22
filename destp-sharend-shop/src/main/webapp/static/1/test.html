@@ -21,7 +21,9 @@
                 url:'/reg/sendmail',
                 data:{email:'kkk@sina.com',id:'1234556',username:"张三"},
                 success:function(resp){
-                    createDiv("dialog",resp.content);
+                    obj= eval('(' + resp + ')');
+                    alert(obj.state);
+                    createDiv("dialog",obj.pagehtml);
                     $('#dialog').dialog({
                         dialogClass: "no-close",
                         title:"测试弹出窗口",

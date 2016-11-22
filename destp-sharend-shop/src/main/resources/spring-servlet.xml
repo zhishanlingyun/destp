@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
@@ -9,12 +10,18 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
 
     <!--spring mvc 包扫描加载bean-->
-    <mvc:annotation-driven/>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <context:component-scan base-package="com.destp.sharend" />
+    <!--<mvc:annotation-driven/>-->
     <context:component-scan base-package="com.destp.sharend.shop.biz" />
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" />-->
 
 
     <mvc:interceptors>
@@ -59,15 +66,6 @@
         <property name="exposeSessionAttributes" value="true" />
     </bean>
 
-    <!--<bean id="validator"
-          class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-        <property name="providerClass"  value="jodd.vtor.Vtor"/>
-    </bean>
-    <bean id="webBindingInitializer"
-          class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
-        <property name="conversionService" ref="conversionService"/>
-        <property name="validator" ref="validator"/>
-    </bean>-->
     <mvc:annotation-driven validator="validator" />
      <!-- 验证配置，告知srpingmvc，我使用的是Hibernate验证框架来完成的验证 -->
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
