@@ -37,7 +37,6 @@ public class JsonPageAspect implements ApplicationContextAware {
     private ApplicationContext applicationContext;
 
     @Around("@annotation(com.destp.sharend.shop.frameworker.annotation.JsonPage)")
-    //@after("execution(* com.destp.sharend.shop.biz.home.web.RegisterController.*(..))")
     public Object addJsonResult(ProceedingJoinPoint pjp){
         Object result = null;
         try {
@@ -56,19 +55,15 @@ public class JsonPageAspect implements ApplicationContextAware {
                         System.out.println(url);
                         render(url,reqresult,null,null);
                     }
-
-
                 }
             }
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
-        System.out.println("=========== JsonPageAspect ==========");
         return result;
     }
 
     protected void render(String viewName, RequestResult requestResult, HttpServletRequest request, HttpServletResponse response) throws Exception {
-
         VelocityConfigurer cfg = applicationContext.getBean(VelocityConfigurer.class);
         VelocityEngine engine = cfg.getVelocityEngine();
         VelocityContext context = new VelocityContext(WebUtils.mergePageResult(request,requestResult));
@@ -76,8 +71,6 @@ public class JsonPageAspect implements ApplicationContextAware {
         engine.getTemplate(viewName).merge(context, writer);
         String page = writer.toString();
         requestResult.setPagehtml(page);
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@\n"+page+"\n@@@@@@@@@@@@@@@@@@@@@@@");
-
     }
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
