@@ -39,7 +39,8 @@ public class HomeController {
         for(int i=0;i<xais.length;i++){
             ChartDto chartDto = new ChartDto();
             chartDto.setName(xais[i]);
-            chartDto.setY(getRodam(0,1500));
+            //chartDto.setY(getRodam(0,10));
+            chartDto.setY(0);
             chartDtos.add(chartDto);
         }
         String json = JSONArray.toJSONString(chartDtos);

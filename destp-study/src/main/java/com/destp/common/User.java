@@ -9,10 +9,10 @@ public class User {
 
     private long id;
     private String name;
-    private Group group;
-    private List<String> friends;
-    private List xq;
-    private List<Point> points;
+    //private Group group;
+    //private List<String> friends;
+    //private List xq;
+    //private List<Point> points;
 
     public User() {
     }
@@ -33,35 +33,11 @@ public class User {
         this.name = name;
     }
 
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
-    }
-
-    public List<String> getFriends() {
-        return friends;
-    }
-
-    public void setFriends(List<String> friends) {
-        this.friends = friends;
-    }
-
-    public List getXq() {
-        return xq;
-    }
-
-    public void setXq(List xq) {
-        this.xq = xq;
-    }
-
-    public List<Point> getPoints() {
-        return points;
-    }
-
-    public void setPoints(List<Point> points) {
-        this.points = points;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

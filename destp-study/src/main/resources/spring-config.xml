@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mybean="http://www.destp.com/schema/study/bean/usr"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.destp.com/schema/study/bean/usr http://www.destp.com/schema/study/bean/us.xsd">
+
+    <mybean:user id="123123" name="zhangsan"/>
+
+</beans>
