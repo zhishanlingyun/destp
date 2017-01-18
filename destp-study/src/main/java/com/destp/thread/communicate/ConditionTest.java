@@ -39,12 +39,12 @@ public class ConditionTest {
         t.start();
         CommonUtil.sleep(5);
         service.setState(1);
-        CommonUtil.sleep(5);
+        /*CommonUtil.sleep(5);
         service.restart();
         CommonUtil.sleep(2);
         service.setState(1);
         CommonUtil.sleep(5);
-        t.interrupt();
+        t.interrupt();*/
     }
 
     public void mulitue(){
@@ -67,8 +67,8 @@ public class ConditionTest {
 
     public static void main(String[] args) {
         ConditionTest ct = new ConditionTest();
-        //ct.notifyOK();
-        ct.mulitue();
+        ct.notifyOK();
+        //ct.mulitue();
     }
 
 

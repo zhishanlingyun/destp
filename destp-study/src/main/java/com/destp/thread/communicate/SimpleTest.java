@@ -1,6 +1,7 @@
 package com.destp.thread.communicate;
 
 import com.destp.common.CommonUtil;
+import com.destp.thread.SimpleThread;
 
 /**
  * 本类列出wait和notify/notifyAll的基本用法
@@ -10,7 +11,9 @@ import com.destp.common.CommonUtil;
  * 执行之前必须获得该对象的对象锁；执行后，当前线程不会立刻释放锁，而是在执行完同步代码块后，释放锁
  * 总结：wait使线程停止运行，notify使停止的线程继续运行
  * 1.wait() notify()时，线程必须获得该对象级别的锁，否则会抛出IllegalMonitorStateException
- * 2.
+ * 线程状态：
+ * TIMED_WAITING 等待时间钟 调用sleep()方法 waiting on condition
+ * BLOCKED 等待锁 waiting for monitor entry
  *
  */
 public class SimpleTest {
@@ -76,6 +79,23 @@ public class SimpleTest {
     }
 
 
+    public void lock(){
+        final LockWaitService lks = new LockWaitService();
+        Thread t1 = new com.destp.thread.SimpleThread("锁定线程", new Runnable() {
+            public void run() {
+                lks.lock();
+            }
+        });
+        Thread t2 = new com.destp.thread.SimpleThread("获取锁线程", new Runnable() {
+            public void run() {
+                lks.trylock();
+            }
+        });
+        t1.start();
+        CommonUtil.sleep(1);
+        t2.start();
+
+    }
 
 
 
@@ -83,7 +103,8 @@ public class SimpleTest {
         SimpleTest st = new SimpleTest();
         //st.nolock();
         //st.threadState();
-        st.notifyOne();
+        //st.notifyOne();
+        st.lock();
     }
 
     class SimpleThread extends Thread{
@@ -128,6 +149,27 @@ public class SimpleTest {
                 }
             }
         }
+    }
+
+    class LockWaitService{
+        private Object lock = new Object();
+
+        public void lock(){
+            System.out.println(Thread.currentThread().getName()+"\t"+"尝试获取锁...");
+            synchronized (lock){
+                System.out.println(Thread.currentThread().getName()+"\t"+"锁定...");
+                //不释放锁，观察等待锁释放线程的状态
+                CommonUtil.sleep(120);
+            }
+        }
+
+        public void trylock(){
+            System.out.println(Thread.currentThread().getName()+"\t"+"尝试获取锁...");
+            synchronized (lock){
+                System.out.println(Thread.currentThread().getName()+"\t"+"锁定...");
+            }
+        }
+
     }
 
 }

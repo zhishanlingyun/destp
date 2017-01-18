@@ -56,8 +56,8 @@ public class ReentrantLockTest {
 
     public static void main(String[] args){
         ReentrantLockTest rt = new ReentrantLockTest();
-        //rt.notinterrupted();
-        rt.caninterrupted();
+        rt.notinterrupted();
+        //rt.caninterrupted();
     }
 
 
@@ -96,7 +96,8 @@ public class ReentrantLockTest {
             synchronized(lock){
                 log.info("WriteRun 已经获取锁 ...");
                 int n = CommonUtil.getRodam(0,10);
-                CommonUtil.sleep(20);
+                CommonUtil.sleep(200);
+                CommonUtil.sleep(200);
                 value.setValue(String.valueOf(n));
                 log.info("WriteRun 设置值 "+n);
             }

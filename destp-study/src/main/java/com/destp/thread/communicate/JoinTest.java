@@ -1,6 +1,7 @@
 package com.destp.thread.communicate;
 
 import com.destp.common.CommonUtil;
+import com.sun.org.apache.xerces.internal.parsers.CachingParserPool;
 
 /**
  * join()的作用是等待线程对象销毁，即使所属线程对象x正常执行run()方法，二使当前线程z进行无限期的阻塞，等待线程x销毁后再继续执行
@@ -12,14 +13,14 @@ import com.destp.common.CommonUtil;
 public class JoinTest {
 
     public void nojoin(){
-        RandomThread t = new RandomThread();
+        RandomThread t = new RandomThread("t");
         t.setName("RandomThread");
         t.start();
         System.out.println("main get sleep is ");
     }
 
     public void usejoin(){
-        RandomThread t = new RandomThread();
+        RandomThread t = new RandomThread("t");
         t.setName("RandomThread");
         t.start();
         try {
@@ -30,19 +31,46 @@ public class JoinTest {
         System.out.println("main get sleep is ");
     }
 
+    public void mujoin(){
+        RandomThread[] rts = new RandomThread[5];
+        for(int i=0;i<5;i++){
+            rts[i] = new RandomThread("t-"+i);
+        }
+        for(RandomThread t : rts){
+            t.start();
+        }
+        for(RandomThread t : rts){
+            try {
+                t.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("fuccess");
+
+    }
+
     public static void main(String[] args){
         JoinTest jt = new JoinTest();
         //jt.nojoin();
-        jt.usejoin();
+        //jt.usejoin();
+        jt.mujoin();
     }
 
     class RandomThread extends Thread{
 
+        public RandomThread(String name) {
+            super(name);
+        }
+
         @Override
         public void run() {
-            int sec = CommonUtil.getRodam(1,10);
-            System.out.println(this.getName()+" 休眠 "+sec);
-            CommonUtil.sleep(sec);
+            for(int i=0;i<5;i++){
+                //int sec = CommonUtil.getRodam(1,5);
+                System.out.println(Thread.currentThread().getName()+" 休眠 "+1);
+                CommonUtil.sleep(1);
+            }
+
         }
     }
 
