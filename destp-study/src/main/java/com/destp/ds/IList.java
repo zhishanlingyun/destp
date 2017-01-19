@@ -23,4 +23,6 @@ public interface IList<E> {
 
     public void clear();
 
+    public Iterable<E> iterable();
+
 }

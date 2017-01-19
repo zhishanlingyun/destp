@@ -1,5 +1,6 @@
 package com.destp.ds.arraylist;
 
+import com.destp.ds.AbstractList;
 import com.destp.ds.IList;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import com.sun.xml.internal.fastinfoset.sax.SystemIdResolver;
@@ -9,15 +10,13 @@ import java.util.Arrays;
 /**
  * Created by liuli10 on 2017/1/18.
  */
-public class MyArrayList<E> implements IList<E>{
+public class MyArrayList<E> extends AbstractList<E> {
 
     private Object[] array;
 
     private int size;
 
     private int capacity = DEFAULT_CAPACITY;
-
-    private int curIndex;
 
     public MyArrayList(){
         this(10);
@@ -34,7 +33,6 @@ public class MyArrayList<E> implements IList<E>{
     public void add(E o) {
         changeLength();
         array[size++]=o;
-        //size++;
     }
 
     public E get(int i) {
