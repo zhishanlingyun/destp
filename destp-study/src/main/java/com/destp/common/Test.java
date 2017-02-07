@@ -24,6 +24,7 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        demo2();
+        //demo2();
+        System.out.println(1<<13);
     }
 }

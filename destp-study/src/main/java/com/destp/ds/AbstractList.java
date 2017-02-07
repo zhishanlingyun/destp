@@ -20,6 +20,10 @@ public abstract class AbstractList<E> implements IList<E>{
         public E next() {
             return null;
         }
+
+        public void remove() {
+
+        }
     }
 
 }
