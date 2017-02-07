@@ -20,6 +20,11 @@ public abstract class AbstractList<E> implements IList<E>{
         public E next() {
             return null;
         }
+
+        @Override
+        public void remove() {
+            //To change body of implemented methods use File | Settings | File Templates.
+        }
     }
 
 }
