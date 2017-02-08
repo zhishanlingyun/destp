@@ -29,10 +29,18 @@ public class SortTest {
         Sort.heapSort(a);
     }
 
+    public static void insertSort(){
+        int[] a = {99,5,36,7,22,17,46,12,2,19,25,28,1,92};
+        //Sort.insertSort(a);
+        Sort.insertEasySort(a);
+        Sort.printArray(a);
+    }
+
 
     public static void main(String[] args){
         //quickSort();
-        createHeap();
+        //createHeap();
         //heapsort();
+        insertSort();
     }
 }

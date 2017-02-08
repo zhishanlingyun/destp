@@ -47,5 +47,28 @@ public class Sort extends Algor{
         }
     }
 
+    public static void insertSort(int[] array){
+        if(null==array||array.length<2) return;
+        int tmp=0;
+        int j=0;
+        for(int p=1;p<array.length;p++){
+            tmp = array[p];
+            for(j=p;j>0&&tmp<array[j-1];j--){
+                swap(j,j-1,array);
+            }
+            array[j] = tmp;
+        }
+    }
+
+    public static void insertEasySort(int[] array){
+        if(null==array||array.length<2) return;
+        for(int i=0;i<array.length;i++){
+            for(int j=i;j>0&&array[j]<array[j-1];j--){
+                swap(j,j-1,array);
+            }
+        }
+    }
+
+
 
 }

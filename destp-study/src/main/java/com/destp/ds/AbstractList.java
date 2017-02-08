@@ -11,6 +11,19 @@ public abstract class AbstractList<E> implements IList<E>{
         return null;
     }
 
+    private class Itr implements Iterator<E>{
 
+        public boolean hasNext() {
+            return false;
+        }
+
+        public E next() {
+            return null;
+        }
+
+        public void remove() {
+
+        }
+    }
 
 }
