@@ -19,7 +19,7 @@ public class BaseSet<E> {
 
     protected void checkArgs(int index){
         if(index==0) return;
-        if(index>=size){
+        if(index>size){
             throw new IllegalArgumentException("over size, max size is "+size+" cur index is "+index);
         }
     }

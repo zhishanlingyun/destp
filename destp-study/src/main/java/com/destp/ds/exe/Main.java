@@ -34,6 +34,7 @@ public class Main {
         System.out.println(list);
         list.remove(6);
         System.out.println(list);
+
     }
 
     public static void demo3(){
@@ -55,12 +56,34 @@ public class Main {
         MyList list = new MyList();
         list.add(0);
         list.add(1);
+        //list.add(2);
+        System.out.println(list);
+        /*list.remove(0);
+        System.out.println(list);
+        list.remove(2);
+        System.out.println(list);
+        list.remove(100);
+        System.out.println(list);*/
+        //list.addBefore(10,0);
+        //list.addBefore(11,0);
+        //list.addBefore(11,3);
+        //System.out.println(list);
+        /*System.out.println(list.isEmpty());
+        System.out.println(list.contains(19));*/
+        list.reversal();
+        System.out.println(list);
+    }
+
+    public static void demo6(){
+        MyDoubleLinkList list = new MyDoubleLinkList();
+        list.add(0);
+        list.add(1);
         list.add(2);
         System.out.println(list);
     }
 
     public static void main(String[] args){
-        demo5();
+        demo6();
     }
 
 }

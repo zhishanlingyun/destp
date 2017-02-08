@@ -39,11 +39,22 @@ public class MyList<E> extends BaseSet<E> implements List<E>,ISet<E> {
 
     @Override
     public boolean contains(E e) {
-        return false;
+        return indexOf(e)!=-1;
     }
 
     @Override
-    public void addBefore(Object o, int index) {
+    public void addBefore(E e, int index) {
+        checkArgs(index);
+        checkArgs(e);
+        Node<E> node=null;
+        if(index==0){
+            node=head;
+        }else {
+            node=indexOf(index-1);
+        }
+        Node<E> newNode = new Node<E>(e,node.next);
+        node.next=newNode;
+        size++;
     }
 
     @Override
@@ -52,12 +63,48 @@ public class MyList<E> extends BaseSet<E> implements List<E>,ISet<E> {
     }
 
     @Override
-    public Object set(Object o, int index) {
+    public E set(E e, int index) {
+        checkArgs(index);
+        checkArgs(e);
+        Node<E> p = indexOf(index);
+        if(null!=p){
+            p.data=e;
+            return p.data;
+        }
         return null;
     }
 
     @Override
-    public void remove(Object o) {
+    public void remove(E e) {
+        checkArgs(e);
+        Node<E> p = head;
+        while (null!=p.next){
+            if(p.next.data.equals(e)){
+                Node<E> r = p.next;
+                p.next = p.next.next;
+                r = null;
+                size--;
+                return;
+            }
+            p = p.next;
+        }
+    }
+
+    public void reversal(){
+        if(null==head.next) return;
+        Node<E> p = head.next;
+        Node<E> q = p.next;
+        if(null==q){
+            return;
+        }
+        p.next=null;
+        while (null!=q){
+            head.next = q.next;
+            q.next = p;
+            p = q;
+            q = head.next;
+        }
+        head.next = p;
     }
 
     @Override
@@ -93,16 +140,16 @@ public class MyList<E> extends BaseSet<E> implements List<E>,ISet<E> {
         return -1;
     }
 
-    private E indexOf(int i){
+    private Node<E> indexOf(int i){
         checkArgs(i);
         Node<E> p = head.next;
         int n=0;
-        while (null!=p&&n<=i){
+        while (null!=p&&n<i){
             n++;
             p = p.next;
         }
         if(i==n){
-            return p.data;
+            return p;
         }
         return null;
     }
