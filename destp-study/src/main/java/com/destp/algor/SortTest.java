@@ -11,7 +11,7 @@ public class SortTest {
 
     public static void quickSort(){
         //int[] a = {2,6,3,2,1,7,9,200,110,50};
-        int[] a = {7,1,3,5,9,6};
+        int[] a = {99,5,36,7,22,17,46,12,2,19,25,28,1,92};
         Sort.printArray(a);
         Sort.quicksort(a);
         Sort.printArray(a);
@@ -32,7 +32,20 @@ public class SortTest {
     public static void insertSort(){
         int[] a = {99,5,36,7,22,17,46,12,2,19,25,28,1,92};
         //Sort.insertSort(a);
-        Sort.insertEasySort(a);
+        //Sort.insertEasySort(a);
+        Sort.insertsort(a);
+        Sort.printArray(a);
+    }
+
+    public static void bubbleSort(){
+        int[] a = {99,5,36,7,22,17,46,12,2,19,25,28,1,92};
+        Sort.bubbleSort(a);
+        Sort.printArray(a);
+    }
+
+    public static void quckSort(){
+        int[] a = {99,5,36,7,22,17,46,12,2,19,25,28,1,92};
+        Sort.quckSort(a);
         Sort.printArray(a);
     }
 
@@ -41,6 +54,6 @@ public class SortTest {
         //quickSort();
         //createHeap();
         //heapsort();
-        insertSort();
+        quckSort();
     }
 }

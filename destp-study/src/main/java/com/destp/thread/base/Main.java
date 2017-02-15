@@ -38,13 +38,75 @@ public class Main {
 
     }
 
+    public void demo3(){
+
+        SimpleThread t = new SimpleThread("simple-state-thread", new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("1-[ "+Thread.currentThread().getName()+" ]"+"state "+Thread.currentThread().isAlive());
+                CommonUtil.sleep(5);
+            }
+        });
+        t.start();
+        System.out.println("2-[ "+t.getName()+" ]"+"state "+t.isAlive());
+        CommonUtil.sleep(10);
+        System.out.println("3-[ "+t.getName()+" ]"+"state "+t.isAlive());
+        System.out.println("5-[ "+Thread.currentThread().getName()+" ]"+"state "+Thread.currentThread().isAlive());
+    }
+
+    public void demo5(){
+        SimpleThread t = new SimpleThread("simple-state-thread", new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    while (true){
+                        if(Thread.currentThread().isInterrupted()){
+                            throw new InterruptedException();
+                        }
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    System.out.println("是否被中断--- "+Thread.currentThread().isInterrupted());
+                    System.out.println("是否被中断--- "+Thread.interrupted());
+                    System.out.println("是否被中断--- "+Thread.interrupted());
+                    System.out.println("是否被中断--- "+Thread.currentThread().isInterrupted());
+                }
+            }
+        });
+        t.start();
+        CommonUtil.sleep(5);
+        t.interrupt();
+        CommonUtil.sleep(5);
+        System.out.println(t.interrupted());
+        System.out.println(Thread.interrupted());
+        System.out.println(t.isInterrupted());
+    }
+
+    public static void demo6(){
+        final SimpleThread t = new SimpleThread("simple-state-thread", new Runnable() {
+            @Override
+            public void run() {
+                int i=0;
+                while (true){
+                    System.out.println(i++);
+                    CommonUtil.sleep(1);
+                }
+            }
+        });
+        t.start();
+        CommonUtil.sleep(5);
+        t.suspend();
+        //CommonUtil.sleep(5);
+        //t.resume();
+    }
+
     public static void main(String[] args) {
         //demo1();
-        new Main().demo2();
+        new Main().demo6();
     }
 
     /**
-     *
+     *使用synchronized 监视器(this),展示了一个方法被调用，会阻塞其他synchronized的方法调用
      */
     class AddService{
         private int n;
@@ -53,6 +115,7 @@ public class Main {
             System.out.println("n = "+n);
             n++;
             CommonUtil.sleep(5);
+            //E:\jd\workerspace\jsf\mvn-jsf\jsf-index-server
         }
 
         public synchronized int getN(){

@@ -15,6 +15,14 @@ public class CommonUtil {
         }
     }
 
+    public static void sleep(int v,int unit){
+        try {
+            Thread.sleep(v*unit);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void notify(Object lock){
         synchronized (lock){
             lock.notify();

@@ -18,7 +18,7 @@ public class Sort extends Algor{
 
     private static void quicksort0(int left,int right,int[] a){
         int temp=a[left];
-        int i=left,j=right;
+        int i=left,j=right-1;
         //递归结束，返回
         if(left>right){
             return;
@@ -37,7 +37,7 @@ public class Sort extends Algor{
         //左右搜索相遇,即找第K位置，与目标值交换，完成一次寻找K
         swap(left,i,a);
         quicksort0(left,i-1,a);
-        quicksort0(i+1,right-1,a);
+        quicksort0(i+1,right,a);
     }
 
     public static void heapSort(int[] a){
@@ -45,6 +45,19 @@ public class Sort extends Algor{
         for(int i=0;i<=a.length;i++){
             System.out.print(deleteMax(heap)+", ");
         }
+    }
+
+    public static void insertsort(int[] array){
+        int temp=0;
+        int j=0;
+        for(int i=1;i<array.length;i++){
+            temp=array[i];
+            for(j=i;j>0&&array[j]<array[j-1];j--){
+                swap(j,j-1,array);
+            }
+            array[j]=temp;
+        }
+
     }
 
     public static void insertSort(int[] array){
@@ -67,6 +80,46 @@ public class Sort extends Algor{
                 swap(j,j-1,array);
             }
         }
+    }
+
+    public static void bubbleSort(int[] array){
+        for(int i=0;i<array.length;i++){
+            for(int j=0;j<(array.length-i-1);j++){
+                if(array[j]>array[j+1]){
+                    swap(j,j+1,array);
+                }
+            }
+        }
+    }
+
+    public static void quckSort(int[] array){
+        qucksort(array,0,array.length-1);
+    }
+
+    private static void qucksort(int[] array,int left,int right){
+        if(left>right){
+            return;
+        }
+        int temp = array[left];
+        int i=left,j=right;
+
+        while (i!=j){
+            while (temp<=array[j]&&i<j){
+                j--;
+            }
+            while (temp>=array[i]&&i<j){
+                i++;
+            }
+            if(i<j){
+                swap(i,j,array);
+            }
+        }
+        //swap(left,temp,array);
+        array[left]=array[i];
+        array[i]=temp;
+        qucksort(array,left,i-1);
+        qucksort(array,i+1,right);
+
     }
 
 
