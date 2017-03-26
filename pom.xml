@@ -24,6 +24,9 @@
         <module>destp-sharend-base</module>
         <module>destp-sharend-dao</module>
         <module>destp-sharend-service</module>
+        <module>destp-exercise</module>
+        <module>destp-sharend-web</module>
+        <module>destp-app</module>
     </modules>
 
     <properties>

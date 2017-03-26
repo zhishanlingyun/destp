@@ -1,8 +1,5 @@
 package com.destp.algor;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-
-import java.awt.geom.QuadCurve2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;

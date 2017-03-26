@@ -1,3 +1,4 @@
+/*
 import com.jd.compare.frame.*;
 import com.jd.compare.impl.compareware.*;
 import com.jd.compare.impl.event.fina.PoolEvent;
@@ -26,13 +27,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
+*/
 /**
  * Created by liuli10 on 2016/12/6.
- */
+ *//*
+
 public class CompareTest {
 
     //@Test
-    /*public void eqPD1(){
+    */
+/*public void eqPD1(){
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
         RedisOrigin std = new RedisOrigin();
         std.setOriginName("standard");
@@ -63,8 +67,10 @@ public class CompareTest {
         cp.compare(event);
 
     }
-*/
-    /*@Test
+*//*
+
+    */
+/*@Test
     public void eqTask(){
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
         RedisOrigin std = new RedisOrigin();
@@ -121,7 +127,8 @@ public class CompareTest {
 
         //event.setAttribute(Constant.EVENT_ATTR_KEY,"J_10314870_1_PD");
         cp.compare(event);
-    }*/
+    }*//*
+
 
     //@Test
     public void beanTest(){
@@ -130,7 +137,8 @@ public class CompareTest {
         e1.setPromotype(1);
         e1.setAttribute("a",1);
         Event e2 = null;
-        /*try {
+        */
+/*try {
             e2 = (Event) BeanUtils.cloneBean(e1);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
@@ -140,7 +148,8 @@ public class CompareTest {
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
-        }*/
+        }*//*
+
         e2 = (Event) SerializationUtils.clone(e1);
         System.out.print(e2);
         e1.setPromoid(9L);
@@ -153,16 +162,19 @@ public class CompareTest {
     public void jsonTest(){
         //String json = "{p={\"price\":\"80.0000\",\"reward\":\"0.0000\",\"salesprice\":\"100.0000\"}, un=[{\"e\":\"1483113600000\",\"id\":\"10314870\",\"s\":\"1480493561203\",\"t\":1}]}";
         //String json = "J_1809897111_SKU :hash-{3687866711_6={\"et\":\"1482979440000\",\"pi\":\"1310257223\",\"st\":\"1480231260000\"}, 3756250335_6={\"et\":\"1483413360000\",\"pi\":\"1310257223\",\"st\":\"1481100420000\"}, 2548757430_6={\"et\":\"1462415820000\",\"pi\":\"1310257223\",\"st\":\"1460876160000\"}}";
-        /*Map<String, Object> map = new HashMap<String, Object>();
+        */
+/*Map<String, Object> map = new HashMap<String, Object>();
 
         // convert JSON string to Map
         try {
             map = mapper.readValue(json, new TypeReference<Map<String, Object>>(){});
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }*//*
 
-        /*json = json.substring(1,json.length()-1);
+
+        */
+/*json = json.substring(1,json.length()-1);
 
         StringTokenizer st = new StringTokenizer(json," ");
         while(st.hasMoreElements()){
@@ -171,11 +183,15 @@ public class CompareTest {
                 str = str.substring(0,str.length()-1);
             }
             System.out.println(str);
-        }*/
+        }*//*
+
         //Map<String,String> map = StringHelper.string2map(json);
-        /*String json = "[12,34,56,67,87]";
-        List<String> list = JSONArray.parseArray(json,String.class);*/
-        /*Man m = new Man();
+        */
+/*String json = "[12,34,56,67,87]";
+        List<String> list = JSONArray.parseArray(json,String.class);*//*
+
+        */
+/*Man m = new Man();
         m.setA("abc");
         m.setB(6);
         List<Man> list = new ArrayList<Man>();
@@ -183,26 +199,33 @@ public class CompareTest {
         String json = JSONParserSingleton.toJSONString(list);
         System.out.println(json);
         List m1 = JSONArray.parseArray(json,Man.class);
-        System.out.println(m1);*/
-        /*String j1 ="{\"areacode\":[\"6\",\"544\",\"3\",\"10\",\"4\",\"321\",\"432\",\"543\",\"600\"],\"areas\":[],\"areatype\":0,\"begintime\":\"1307674800000\",\"blanks\":[],\"canusedq\":\"1\",\"endtime\":\"1559869200000\",\"exttype\":\"0\",\"limitperiod\":\"0\",\"limittimes\":\"0\",\"limitusertype\":\"0\",\"maxnum\":\"5\",\"member\":[{\"coupon\":[],\"discount\":\"532.0000\",\"gift\":[],\"memberlevel\":\"50\",\"optionalgiftnum\":\"0\",\"price\":\"9499.0000\"}],\"minnum\":\"0\",\"promotionid\":\"10506863\",\"salesnum\":\"0\",\"submitflag\":\"1\",\"token\":{},\"type\":\"1\"}";
+        System.out.println(m1);*//*
+
+        */
+/*String j1 ="{\"areacode\":[\"6\",\"544\",\"3\",\"10\",\"4\",\"321\",\"432\",\"543\",\"600\"],\"areas\":[],\"areatype\":0,\"begintime\":\"1307674800000\",\"blanks\":[],\"canusedq\":\"1\",\"endtime\":\"1559869200000\",\"exttype\":\"0\",\"limitperiod\":\"0\",\"limittimes\":\"0\",\"limitusertype\":\"0\",\"maxnum\":\"5\",\"member\":[{\"coupon\":[],\"discount\":\"532.0000\",\"gift\":[],\"memberlevel\":\"50\",\"optionalgiftnum\":\"0\",\"price\":\"9499.0000\"}],\"minnum\":\"0\",\"promotionid\":\"10506863\",\"salesnum\":\"0\",\"submitflag\":\"1\",\"token\":{},\"type\":\"1\"}";
         String j2 = "{\"areacode\":[\"6\",\"544\",\"3\",\"10\",\"4\",\"321\",\"432\",\"543\",\"600\"],\"areas\":[],\"areatype\":0,\"begintime\":\"1307674800000\",\"blanks\":[],\"canusedq\":\"1\",\"endtime\":\"1559869200000\",\"exttype\":\"0\",\"limitusertype\":\"0\",\"maxnum\":\"5\",\"member\":[{\"coupon\":[],\"discount\":\"532.00\",\"gift\":[],\"memberlevel\":\"50\",\"optionalgiftnum\":\"0\",\"price\":\"0.00\"}],\"minnum\":\"0\",\"phoneLogo\":\"1\",\"pol\":[\"1\"],\"promotionid\":\"10506863\",\"salesnum\":\"0\",\"submitflag\":\"1\",\"token\":{},\"type\":\"1\"}";
         PromotionDanpinObj d1 = JSONParserSingleton.toObject(j1,PromotionDanpinObj.class);
         PromotionDanpinObj d2 = JSONParserSingleton.toObject(j2,PromotionDanpinObj.class);
-        System.out.println(d1.equals(d2));*/
-       /* A a1 = new A();
+        System.out.println(d1.equals(d2));*//*
+
+       */
+/* A a1 = new A();
         a1.setA(10);
         a1.setName("1");
         A a2 = new A();
         a2.setA(10);
         a2.setName("1");
-        System.out.println(a1.equals(a2));*/
-        /*PriceIndexSubValueObj p = new PriceIndexSubValueObj();
+        System.out.println(a1.equals(a2));*//*
+
+        */
+/*PriceIndexSubValueObj p = new PriceIndexSubValueObj();
         p.setE("1");
         p.setId("aaa");
         p.setPno("2");
         p.setT(1);
         String json = JSONParserSingleton.toJSONString(p);
-        System.out.println(json);*/
+        System.out.println(json);*//*
+
 
         List<String> list = new ArrayList<String>();
         list.add("aaa");
@@ -215,17 +238,21 @@ public class CompareTest {
             System.out.println(s);
         }
 
-        /*String json = "{\"e\":\"1\",\"endTime\":1,\"id\":\"aaa\",\"key\":\"aaa\",\"pno\":\"2\",\"t\":1}";
+        */
+/*String json = "{\"e\":\"1\",\"endTime\":1,\"id\":\"aaa\",\"key\":\"aaa\",\"pno\":\"2\",\"t\":1}";
         PriceIndexSubValueObj p = JSONParserSingleton.toObject(json,PriceIndexSubValueObj.class);
-        System.out.println(p);*/
+        System.out.println(p);*//*
+
     }
 
     //@Test
     public void timeTest(){
-        /*long cur = System.currentTimeMillis();
+        */
+/*long cur = System.currentTimeMillis();
         System.out.println(cur);
         Long l = new Long("1483113600000");
-        System.out.println((l-cur));*/
+        System.out.println((l-cur));*//*
+
 
         System.out.println(KeyUtils.getPromoidFromPack("J_1282750610_3756338400_POOL"));
     }
@@ -282,3 +309,4 @@ public class CompareTest {
         System.out.println(json);
     }
 }
+*/

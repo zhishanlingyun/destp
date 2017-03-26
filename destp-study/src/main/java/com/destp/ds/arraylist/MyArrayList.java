@@ -1,10 +1,6 @@
 package com.destp.ds.arraylist;
 
 import com.destp.ds.AbstractList;
-import com.destp.ds.IList;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
-import com.sun.xml.internal.fastinfoset.sax.SystemIdResolver;
-
 import java.util.Arrays;
 
 /**

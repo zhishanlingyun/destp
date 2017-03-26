@@ -1,7 +1,6 @@
 package com.destp.ds.arraylist;
 
 import com.destp.ds.IList;
-import com.sun.org.apache.xerces.internal.parsers.CachingParserPool;
 
 /**
  * Created by liuli10 on 2017/1/18.
