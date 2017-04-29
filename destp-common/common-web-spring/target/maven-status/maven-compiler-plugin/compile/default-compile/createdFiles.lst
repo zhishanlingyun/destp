@@ -1,0 +1,8 @@
+destp\App.class
+com\destp\common\ui\web\util\PatternUtil.class
+com\destp\common\ui\web\view\VelocityLayoutDecorateViewResolver.class
+com\destp\common\ui\web\interceptor\PageUIDecorate.class
+com\destp\common\ui\web\util\WebUtils.class
+com\destp\common\ui\web\view\ModelMap.class
+com\destp\common\ui\web\view\VelocityLayoutDecorateView.class
+com\destp\common\ui\web\view\RequestResult.class

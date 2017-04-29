@@ -1,0 +1,5 @@
+#set($title="首页")
+#set($pagetitle="管理页面")
+#define($content)
+    aslkdfjlsadfjlfds
+#end

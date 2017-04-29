@@ -1,0 +1,171 @@
+<div id="wp" class="wp">
+    <script type="text/javascript">
+        var strongpw = new Array();
+        var pwlength = 6;
+    </script>
+
+    <script src="./register_files/register.js.下载" type="text/javascript"></script>
+
+    <div id="ct" class="ptm wp cl">
+        <div class="nfl" id="main_succeed" style="display: none">
+            <div class="f_c altw">
+                <div class="alert_right">
+                    <p id="succeedmessage"></p>
+                    <p id="succeedlocation" class="alert_btnleft"></p>
+                    <p class="alert_btnleft"><a id="succeedmessage_href">如果您的浏览器没有自动跳转，请点击此链接</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="mn">
+
+            <div class="bm" id="main_message">
+
+                <div class="bm_h bbs" id="main_hnav">
+<span class="y">
+<a href="http://nztdsm5.com/member.php?mod=logging&amp;action=login&amp;referer=forum.php"
+   onclick="showWindow(&#39;login&#39;, this.href);return false;" class="xi2">已有帐号？现在登录</a>
+</span>
+                    <h3 id="layer_reginfo_t" class="xs2">
+                        免费注册会员</h3>
+                </div>
+
+                <p id="returnmessage4"></p>
+
+                <form method="post" autocomplete="off" name="register" id="registerform" enctype="multipart/form-data"
+                      onsubmit="checksubmit();return false;" action="http://nztdsm5.com/member.php?mod=register">
+                    <div id="layer_reg" class="bm_c">
+                        <input type="hidden" name="regsubmit" value="yes">
+                        <input type="hidden" name="formhash" value="b20b3098">
+                        <input type="hidden" name="referer" value="forum.php">
+                        <input type="hidden" name="activationauth" value="">
+                        <input type="hidden" name="hash" value="">
+                        <div class="mtw">
+                            <div id="reginfo_a">
+                                <div class="rfm">
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <th><span class="rq">*</span><label for="FCKm78">Email:</label></th>
+                                            <td>
+                                                <input type="text" id="FCKm78" name="FCKm78" autocomplete="off"
+                                                       size="25" tabindex="1" class="px" required=""><br><em
+                                                    id="emailmore">&nbsp;</em>
+                                                <input type="hidden" name="handlekey" value="sendregister">
+                                            </td>
+                                            <td class="tipcol"><i id="tip_FCKm78" class="p_tip">请输入正确的邮箱地址</i><kbd
+                                                    id="chk_FCKm78" class="p_chk"></kbd></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <th>&nbsp;</th>
+                                            <td class="tipwide">
+                                                注册需要验证邮箱，请务必填写正确的邮箱，提交后请及时查收邮件。<br>您可能需要等待几分钟才能收到邮件，如果收件箱没有，请检查一下垃圾邮件箱。
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <script type="text/javascript">
+                                        function succeedhandle_sendregister(url, msg, values) {
+                                            showDialog(msg, 'notice');
+                                        }
+                                    </script>
+                                </div>
+
+                                <span id="secqaa_qS"><input name="secqaahash" type="hidden" value="qS"><div class="rfm"><table><tbody><tr><th><span
+                                        class="rq">*</span>验证问答: </th><td><input name="secanswer" id="secqaaverify_qS"
+                                                                                 type="text" autocomplete="off"
+                                                                                 style="width:100px" class="txt px vm"
+                                                                                 onblur="checksec(&#39;qaa&#39;, &#39;qS&#39;)"> <a
+                                        href="javascript:;" onclick="updatesecqaa(&#39;qS&#39;);doane(event);"
+                                        class="xi2">换一个</a><span id="checksecqaaverify_qS"><img
+                                        src="./register_files/none.gif" width="16" height="16" class="vm"></span><br>女主天地的最新网址是</td></tr></tbody></table></div></span>
+                                <script type="text/javascript"
+                                        reload="1">updatesecqaa('qS', '<div class="rfm"><table><tr><th><span class="rq">*</span><sec>: </th><td><sec><br /><sec></td></tr></table></div>', 'member::register');</script>
+                                <span id="seccode_cS"><input name="seccodehash" type="hidden" value="cS"><input
+                                        name="seccodemodid" type="hidden" value="member::register"><div class="rfm"><table><tbody><tr><th><span
+                                        class="rq">*</span>验证码: </th><td><input name="seccodeverify"
+                                                                                id="seccodeverify_cS" type="text"
+                                                                                autocomplete="off"
+                                                                                style="ime-mode:disabled;width:100px"
+                                                                                class="txt px vm"
+                                                                                onblur="checksec(&#39;code&#39;, &#39;cS&#39;, 0, null, &#39;member::register&#39;)"> <a
+                                        href="javascript:;" onclick="updateseccode(&#39;cS&#39;);doane(event);"
+                                        class="xi2">换一个</a><span id="checkseccodeverify_cS"><img
+                                        src="./register_files/none.gif" width="16" height="16"
+                                        class="vm"></span><br><span id="vseccode_cS">请输入下面动画图片中的字符<br><img
+                                        onclick="updateseccode(&#39;cS&#39;)" width="200" height="80"
+                                        src="./register_files/misc(2).php" class="vm"
+                                        alt=""></span></td></tr></tbody></table></div></span>
+                                <script type="text/javascript"
+                                        reload="1">updateseccode('cS', '<div class="rfm"><table><tr><th><span class="rq">*</span><sec>: </th><td><sec><br /><sec></td></tr></table></div>', 'member::register');</script>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="layer_reginfo_b">
+                        <div class="rfm mbw bw0">
+                            <table width="100%">
+                                <tbody>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <td>
+<span id="reginfo_a_btn">
+<em>&nbsp;</em><button class="pn pnc" id="registerformsubmit" type="submit" name="regsubmit" value="true"
+                       tabindex="1"><strong>提交</strong></button>
+</span>
+                                    </td>
+                                    <td><a href="javascript:;" id="custominfo_register" class="y"
+                                           initialized="true"><img src="./register_files/info_small.gif" alt="帮助"></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="layer_regmessage" class="f_c blr nfl" style="display: none">
+                <div class="c">
+                    <div class="alert_right">
+                        <div id="messageleft1"></div>
+                        <p class="alert_btnleft" id="messageright1"></p>
+                    </div>
+                </div>
+
+                <div id="layer_bbrule" style="display: none">
+                    <div class="c" style="width:700px;height:350px;overflow:auto"><br>
+                        <br>
+                        <br>
+                    </div>
+                    <p class="fsb pns cl hm">
+                        <button class="pn pnc"
+                                onclick="$(&#39;agreebbrule&#39;).checked = true;hideMenu(&#39;fwin_dialog&#39;, &#39;dialog&#39;);">
+                            <span>同意</span></button>
+                        <button class="pn" onclick="location.href=&#39;http://nztdsm5.com/&#39;"><span>不同意</span>
+                        </button>
+                    </p>
+                </div>
+
+                <script type="text/javascript">
+                    var ignoreEmail = false;
+                    addMailEvent($('FCKm78'));
+                    function showRegprompt() {
+                        showPrompt('custominfo_register', 'mouseover', '注意:开通VIP后可以免去这个注册步骤,全站内容不限制浏览,不是VIP的普通用户板块内容有限制,想看的看不到,普通VIP200半年,雷锋VIP300半年,终身VIP1000永久,有意开通者联系QQ525820148或邮箱525820148@qq.com', 3000);
+                    }
+                    showRegprompt();
+                    function showBBRule() {
+                        showDialog($('layer_bbrule').innerHTML, 'info', '女主天地 网站服务条款');
+                        $('fwin_dialog_close').style.display = 'none';
+                    }
+                </script>
+
+            </div>
+        </div>
+    </div>
+</div>

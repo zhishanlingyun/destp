@@ -8,7 +8,11 @@ import com.destp.spring.bean.scan.dto.RedisLock;
 import com.destp.spring.bean.scan.service.SearchService;
 import com.destp.spring.bean.scan.service.impl.FileSearchService;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 
 import java.util.Arrays;
 import java.util.List;
@@ -41,6 +45,15 @@ public class StringTest {
         System.out.println(searchService.search(lock,"kkkkkkk"));
     }
 
+    public static void demo6(){
+
+        ConfigurableApplicationContext cac = (ConfigurableApplicationContext)context;
+        System.out.println(cac.getEnvironment());
+        /*ResourceLoader resourceLoader = new DefaultResourceLoader();
+        System.out.println(resourceLoader.getClassLoader());
+        System.out.println(resourceLoader.getResource("spring-config.xml").exists());*/
+    }
+
    /* public static void demo3(){
         ConcurrentExecutor.submit(new ConcurrentHandler() {
             @Override
@@ -62,7 +75,8 @@ public class StringTest {
 
     public static void main(String[] args) {
         //demo1();
-        demo2();
+        //demo2();
+        demo6();
 
 
 

@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="/static/1/css/jquery-ui.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/1/css/jquery-ui.theme.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/1/css/jquery-ui.structure.css">
+
+        <script src="/static/1/js/jquery.js" type="text/javascript"></script>
+        <script src="/static/1/js/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="/static/1/js/jquery.form.js" type="text/javascript"></script>
+        <script src="/static/1/js/core.js" type="text/javascript"></script>
+        <script src="/static/1/js/md5.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+    <script type="application/javascript">
+        function f1() {
+            $.ajax({
+                type:'post',
+                contentType:'application/x-www-form-urlencoded;charset=UTF-8',
+                url:'/reg/sendmail',
+                data:{email:'kkk@sina.com',id:'1234556',username:"张三"},
+                success:function(resp){
+                    obj= eval('(' + resp + ')');
+                    alert(obj.state);
+                    createDiv("dialog",obj.pagehtml);
+                    $('#dialog').dialog({
+                        dialogClass: "no-close",
+                        title:"测试弹出窗口",
+                        buttons: [
+                            {
+                                text: "OK",
+                                click: function() {
+                                    $(this).dialog( "close" );
+                                }
+                            }
+                        ],
+                        close:function (event,ui) {
+                        $(this).remove();
+                    }});
+                }
+            });
+        }
+
+        function createDiv(id,content) {
+            var divframe="<div id="+id+"></div>";
+            $("body").append(divframe);
+            $('#'+id).append(content);
+        }
+        
+        function fun2() {
+            $.ajax({
+                url:'/reg/register',
+                data:''
+            });
+        }
+
+    </script>
+        <div id="panel" style="margin: auto">
+            <ul>
+                <li><input type="button" onclick="f1()" value="按钮1" /></li>
+                <li>
+                    <form id="regform" onclick="">
+                        <span>账号:</span>
+                        <input type="text" id="appuserid" size="20"/>
+                        <span>用户名:</span>
+                        <input type="text" id="username" size="20"/>
+                        <span>密码:</span>
+                        <input type="password" id="pass" size="20"/>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </body>
+
+
+
+</html>

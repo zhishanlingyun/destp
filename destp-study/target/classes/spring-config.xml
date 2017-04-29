@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="f" class="com.destp.spring.bean.scan.service.impl.FileSearchService"/>
+
+    <bean id="fd" class="com.destp.spring.bean.scan.dto.FileDao">
+        <property name="name" value="dddddddd"/>
+    </bean>
+
+    <import resource="classpath:destp/spring-content.xml"/>
+    <import resource="classpath:destp/spring-aop.xml"/>
+
+</beans>

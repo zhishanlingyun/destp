@@ -38,6 +38,11 @@
             <artifactId>velocity-tools</artifactId>
             <version>${velocity.tools.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.2.6.RELEASE</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>destp-sharend-web</finalName>
