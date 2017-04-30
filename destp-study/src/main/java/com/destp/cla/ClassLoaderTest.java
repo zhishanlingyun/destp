@@ -29,8 +29,17 @@ public class ClassLoaderTest {
         }
     }
 
+    public static void str(){
+        String str = new String("abdef");
+        String s = str.substring(0,2);
+        System.out.println(s);
+    }
+
     public static void main(String[] args) {
-        new ClassLoaderTest().demo2();
+
+        //new ClassLoaderTest().demo2();
+        str();
+
     }
 
 }
