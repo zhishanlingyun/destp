@@ -4,3 +4,6 @@
 /*/target/
 gradle/*
 *.gradle
+*.classpath
+*.project
+.settings

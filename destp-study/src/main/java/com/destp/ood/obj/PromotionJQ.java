@@ -1,7 +1,6 @@
 package com.destp.ood.obj;
 
 
-import org.apache.commons.lang3.ObjectUtils;
 
 import java.util.List;
 
@@ -158,6 +157,6 @@ public class PromotionJQ extends PromotionJQProperty {
         String s2 = "{\"exttype\":\"2\",\"products\":[],\"promoId\":\"4184135927\",\"promoType\":\"6\",\"property\":{\"100\":[\"1\"],\"101\":[\"1\"],\"115\":[\"3\"],\"200\":[\"{\\\"1148624929\\\":{\\\"dis\\\":\\\"103.00\\\",\\\"plshow\\\":\\\"1\\\",\\\"sku\\\":\\\"[{\\\\\\\"id\\\\\\\":\\\\\\\"1281712209\\\\\\\",\\\\\\\"num\\\\\\\":\\\\\\\"1\\\\\\\"}]\\\"},\\\"1157795550\\\":{\\\"dis\\\":\\\"53.00\\\",\\\"plshow\\\":\\\"1\\\",\\\"sku\\\":\\\"[{\\\\\\\"id\\\\\\\":\\\\\\\"1309294804\\\\\\\",\\\\\\\"num\\\\\\\":\\\\\\\"1\\\\\\\"}]\\\"}}\"],\"timeStamp\":[\"2017-03-15 00:19:00\"]},\"timeBegin\":\"2017-03-15 00:22:00\",\"timeend\":\"2017-09-05 23:36:00\"}";
         PromotionJQ p1 = JSONParserSingleton.toObject(s1,PromotionJQ.class);
         PromotionJQ p2 = JSONParserSingleton.toObject(s2,PromotionJQ.class);
-        System.out.println(ObjectUtils.equals(p1,p2));
+        //System.out.println(ObjectUtils.equals(p1,p2));
     }
 }
