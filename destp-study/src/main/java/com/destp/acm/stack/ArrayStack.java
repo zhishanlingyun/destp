@@ -32,7 +32,11 @@ public class ArrayStack implements Stack {
     }
 
     @Override
-    public Object getMin() {
+    public Object peek() {
+        if(!isEmpty()){
+            int p = top-1;
+            return array[p];
+        }
         return null;
     }
 
@@ -54,5 +58,16 @@ public class ArrayStack implements Stack {
             System.arraycopy(array,0,newArray,0,size);
             array = newArray;
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("stack is [bottom]");
+        int i = 0;
+        while (i<size){
+            sb.append(array[i++]).append(",");
+        }
+        sb.deleteCharAt(sb.length()-1).append(" [top]");
+        return sb.toString();
     }
 }

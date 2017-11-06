@@ -17,6 +17,12 @@ public interface Stack<T> {
      */
     public T pop();
 
+    /**
+     * 查看栈顶元素,不出栈
+     * @return
+     */
+    public T peek();
+
     public int size();
 
     public boolean isEmpty();
