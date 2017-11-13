@@ -88,6 +88,46 @@ public class BinTree<T extends Comparable> {
         }
     }
 
+    public Tree<T> covertLink(Tree<T> root){
+        if(null==root){
+            return null;
+        }
+        Tree<T> last = process(root);
+        root = last.right;
+        last.right = null;
+        return root;
+    }
+
+    public Tree<T> process(Tree<T> head){
+        if(null==head){
+            return null;
+        }
+        Tree<T> leftE = process(head.lift);
+        Tree<T> rightE = process(head.right);
+        Tree<T> leftS = leftE!=null?leftE.right:null;
+        Tree<T> rightS = rightE!=null?rightE.right:null;
+        if(leftE!=null&&rightE!=null){
+            leftE.right = head;
+            head.lift = leftE;
+            head.right = rightS;
+            rightS.lift = head;
+            rightE.right = leftS;
+            return rightE;
+        }else if(leftE!=null){
+            leftE.right = head;
+            head.lift = leftE;
+            head.right = leftS;
+            return head;
+        }else if(rightE!=null){
+            head.right = rightS;
+            rightS.lift = head;
+            rightE.right = head;
+            return rightE;
+        }else {
+            head.right = head;
+            return head;
+        }
+    }
 
 
 }

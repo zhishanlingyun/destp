@@ -2,6 +2,7 @@ package com.destp.thread.base;
 
 import com.destp.common.CommonUtil;
 import com.destp.thread.SimpleThread;
+import jodd.util.ThreadUtil;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
@@ -100,9 +101,29 @@ public class Main {
         //t.resume();
     }
 
+    public void demo7(){
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int m = 6;
+                while (true){
+                    System.out.println(10+"/"+m+" result is "+(10/m));
+                    m--;
+                    if(m==0){
+                        throw new RuntimeException("0");
+                    }
+                    ThreadUtil.sleep(1000);
+                }
+            }
+        });
+        t.setName("T-demo7");
+        t.setUncaughtExceptionHandler(new uncaughtException());
+        t.start();
+    }
+
     public static void main(String[] args) {
         //demo1();
-        new Main().demo6();
+        new Main().demo7();
     }
 
     /**
@@ -181,6 +202,13 @@ public class Main {
                 addService.add();
                 CommonUtil.sleep(5);
             }
+        }
+    }
+
+    class uncaughtException implements Thread.UncaughtExceptionHandler{
+        @Override
+        public void uncaughtException(Thread t, Throwable e) {
+            System.out.println("name is "+t+" "+e);
         }
     }
 

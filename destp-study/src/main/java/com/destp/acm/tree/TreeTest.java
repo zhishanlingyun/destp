@@ -12,7 +12,8 @@ public class TreeTest {
 
     @Test
     public void create(){
-        Integer[] nodes = {1,2,9,5,7,6,15,20};
+        //Integer[] nodes = {1,2,9,5,7,6,15,20};
+        Integer[] nodes = {6,2,7};
         BinTree<Integer> binTree = new BinTree<Integer>();
         Tree<Integer> root = binTree.createTree(nodes);
         System.out.println(root);
@@ -34,6 +35,8 @@ public class TreeTest {
             }
         });
         System.out.println(level);
+        binTree.covertLink(root);
+        //System.out.println(root);
 
     }
 
