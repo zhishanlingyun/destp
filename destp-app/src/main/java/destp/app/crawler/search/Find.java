@@ -1,6 +1,9 @@
 package destp.app.crawler.search;
 
+import destp.app.crawler.domain.Element;
 import destp.app.crawler.domain.Url;
+
+import java.util.List;
 
 /**
  * Created by zsly on 17-11-11.
@@ -8,6 +11,8 @@ import destp.app.crawler.domain.Url;
  */
 public interface Find {
 
-    public Url next(Url in);
+    public boolean hasNext(Url url);
+
+    public List<Element> next(Url in);
 
 }

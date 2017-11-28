@@ -3,7 +3,7 @@ package destp.app.crawler.domain;
 /**
  * Created by zsly on 17-11-11.
  */
-public class Url {
+public class Url implements Element{
 
     private String url;
 

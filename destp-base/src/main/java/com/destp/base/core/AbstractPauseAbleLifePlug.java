@@ -55,4 +55,7 @@ public abstract class AbstractPauseAbleLifePlug extends AbstractLifePlug{
         return LifeState.Pause.equals(lifeState);
     }
 
+    protected void doStop() {
+
+    }
 }
