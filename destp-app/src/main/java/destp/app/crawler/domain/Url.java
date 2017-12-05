@@ -32,4 +32,8 @@ public class Url implements Element{
     public void setLeaf(boolean leaf) {
         isLeaf = leaf;
     }
+
+    public int compareTo(Object o) {
+        return 0;
+    }
 }

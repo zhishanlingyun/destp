@@ -25,6 +25,15 @@ public abstract class DateUtil {
         return null;
     }
 
+    public static Date setDate(String str){
+        try {
+            return readDate.parse(str);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static String dateToString(Date date){
         return readDate.format(date);
     }
@@ -45,6 +54,7 @@ public abstract class DateUtil {
         System.out.println(d);
         System.out.println(DateUtil.dateToString(d));
         System.out.println(Math.abs(diffDate(d, new Date())));
+        System.out.println(setDate("2026-02-18 00:00:00.000Z"));
     }
 
 

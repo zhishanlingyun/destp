@@ -1,14 +1,13 @@
 package destp.app.crawler.search;
 
 import com.destp.base.core.AbstractAsyLifePlug;
-import destp.app.crawler.domain.Element;
 import destp.app.crawler.domain.Url;
+import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.concurrent.BlockingQueue;
 
 /**
  * Created by zsly on 17-11-11.
@@ -20,9 +19,7 @@ public class Traverse extends AbstractAsyLifePlug {
 
     private Find finder;
 
-    private Queue<Element> queue;
-
-    private Stack<Url> stack = new Stack<Url>();
+    private BlockingQueue<Url> queue;
 
     private Url seed;
 
@@ -30,7 +27,7 @@ public class Traverse extends AbstractAsyLifePlug {
         this.finder = finder;
     }
 
-    public Traverse(Find finder, Queue<Element> queue, Url seed) {
+    public Traverse(Find finder, BlockingQueue<Url> queue, Url seed) {
         this.finder = finder;
         this.queue = queue;
         this.seed = seed;
@@ -49,7 +46,7 @@ public class Traverse extends AbstractAsyLifePlug {
         exe.start();
     }
 
-    public void setQueue(Queue<Element> queue) {
+    public void setQueue(BlockingQueue<Url> queue) {
         this.queue = queue;
     }
 
@@ -58,26 +55,26 @@ public class Traverse extends AbstractAsyLifePlug {
     }
 
     public void traver(Url url){
-        Url tmp = url;
-        do{
-            if(!finder.hasNext(tmp)){
-                url.setLeaf(true);
-                log.debug("进入下载队列 {}",tmp);
-                queue.add(tmp);
-            }else {
-                List<Element> elements = finder.next(tmp);
-                for(Element element : elements){
-                    log.debug("进入待遍历栈 {}",element);
-                    stack.push((Url) element);
+        Url tmp = null;
+        queue.add(url);
+        try {
+            while (!queue.isEmpty()){
+                tmp = queue.take();
+                if(null==tmp){
+                    log.info("遍历结束.......");
+                    break;
+                }
+                List<Url> elements = finder.next(tmp);
+                if(CollectionUtils.isNotEmpty(elements)){
+                    for(Url u : elements){
+                        queue.put(u);
+                    }
                 }
             }
-            if(stack.empty()){
-                log.info("遍历结束.......");
-                break;
-            }else {
-                tmp = (Url)stack.pop();
-            }
-        }while (!stack.empty());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        log.info("网站抓取结束...");
     }
 
 
